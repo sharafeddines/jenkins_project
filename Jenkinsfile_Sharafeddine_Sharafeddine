@@ -8,6 +8,7 @@ pipeline {
             steps {
                 script {
                     echo 'python --version'
+                    sh 'python --version'
                     if (!fileExists("${env.WORKSPACE}/${VIRTUAL_ENV}")) {
                         sh "python -m venv ${VIRTUAL_ENV}"
                     }
