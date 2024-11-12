@@ -17,14 +17,14 @@ pipeline {
         stage('Lint') {
             steps {
                 script {
-                    bat "source ${VIRTUAL_ENV}/bin/activate && flake8 app.py"
+                    bat "call ${VIRTUAL_ENV}/bin/activate && flake8 app.py"
                 }
             }
         }
         stage('Test') {
             steps {
                 script {
-                    bat "source ${VIRTUAL_ENV}/bin/activate && pytest"
+                    bat "call ${VIRTUAL_ENV}/bin/activate && pytest"
                 }
             }
         }
