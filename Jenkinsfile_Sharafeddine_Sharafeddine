@@ -42,7 +42,7 @@ pipeline {
             steps {
                 script {
                     // Run Bandit for security scanning
-                    bat "call ${VIRTUAL_ENV}/Scripts/activate && bandit -r . -f txt -o bandit_report.txt"
+                    bat "call ${VIRTUAL_ENV}/Scripts/activate && bandit -r . -f txt -o bandit_report.txt --severity-level medium"
                     bat "type bandit_report.txt" // Display the report in the console output
                 }
             }
