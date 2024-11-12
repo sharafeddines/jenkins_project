@@ -28,6 +28,16 @@ pipeline {
                 }
             }
         }
+        stage('Coverage') {
+            steps {
+                script {
+                    // Run tests with coverage and generate HTML report
+                    bat "call ${VIRTUAL_ENV}/Scripts/activate && coverage run -m unittest discover"
+                    bat "call ${VIRTUAL_ENV}/Scripts/activate && coverage report"
+                    bat "call ${VIRTUAL_ENV}/Scripts/activate && coverage html"
+                }
+            }
+        }
         stage('Deploy') {
             steps {
                 script {
